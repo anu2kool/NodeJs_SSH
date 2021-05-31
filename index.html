@@ -29,6 +29,7 @@
 			var lon_value=position.coords.longitude;
 			lat_ele.innerHTML=lat_value;
 			lon_ele.innerHTML=lon_value;
+			console.log(`Checking: ${lat_value} and ${lon_value}`);
 		}
 		function showError(position){
 			lat_ele.innerHTML=error.message;
