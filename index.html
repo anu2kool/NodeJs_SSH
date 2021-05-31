@@ -20,20 +20,20 @@
 				navigator.geolocation.getCurrentPosition(showCoordinates,showError);
 			}
 			else{
-				lat_ele.innerHTML="ERROR";
-				lon_ele.innerHTML="ERROR";
+				lat_ele.value="ERROR";
+				lon_ele.value="ERROR";
 			}
 		}
 		function showCoordinates(position){
 			var lat_value=position.coords.latitude;
 			var lon_value=position.coords.longitude;
-			lat_ele.innerHTML=lat_value;
-			lon_ele.innerHTML=lon_value;
+			lat_ele.value=lat_value;
+			lon_ele.value=lon_value;
 			console.log(`Checking: ${lat_value} and ${lon_value}`);
 		}
 		function showError(position){
-			lat_ele.innerHTML=error.message;
-			lon_ele.innerHTML=error.message;
+			lat_ele.value=error.message;
+			lon_ele.value=error.message;
 		}
 	</script>
 </body>
