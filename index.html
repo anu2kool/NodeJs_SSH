@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<h1>My Geolocation Web App</h1>
+	<p>Get my coordinates</p>
+	<button onclick="getCoordinates()" value="Get Coordinates">Get coordinates</button>
+	<form method="POST" action="/">
+		Latitude: <input type="text" name="latitude" id="lat">
+		Longitude: <input type="text" name="longitude" id="lon">
+		<input type="submit" value="Submit">
+	</form>
+	<script type="text/javascript">
+		var lat_ele=document.getElementById("lat");
+		var lon_ele=document.getElementById("lon");
+		function getCoordinates(){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(showCoordinates,showError);
+			}
+			else{
+				lat_ele.innerHTML="ERROR";
+				lon_ele.innerHTML="ERROR";
+			}
+		}
+		function showCoordinates(position){
+			var lat_value=position.coords.latitude;
+			var lon_value=position.coords.longitude;
+			lat_ele.innerHTML=lat_value;
+			lon_ele.innerHTML=lon_value;
+		}
+		function showError(position){
+			lat_ele.innerHTML=error.message;
+			lon_ele.innerHTML=error.message;
+		}
+	</script>
+</body>
+</html>
